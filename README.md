@@ -47,4 +47,29 @@ or
 
 http://localhost:8080/hello-world?name=Successful+Dropwizard+User
 
-and have a peek at the Admin Interface at http://localhost:8081/
+To create a Docker Image and run the docker image in a container and test like above
+
+```
+cd dropwizard-helloworld/target/
+docker build dropwizard-helloworld:v1.0
+
+docker images
+
+docker images
+REPOSITORY                        TAG                 IMAGE ID            CREATED             SIZE
+dropwizard-helloworld                  v1                  5fec6de4a34a        2 days ago          528MB
+
+docker run -p 8080:8080 dropwizard-hello:v1.0 &
+
+Open a browser and test this below URLs:
+
+http://localhost:8080/hello-world
+or
+http://localhost:8080/hello-world?name=Successful+Dropwizard+User
+
+```
+Push the docker image to docker hub
+
+```
+docker tag dropwizard-helloworld:v1.0 nabarunsen/dropwizardhelloworld:v1.0
+```
